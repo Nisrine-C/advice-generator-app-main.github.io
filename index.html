@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
+
+  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
+  <link rel="stylesheet" href="./assets/style/style.css">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Manrope&family=Hanken+Grotesk&family=Inter:wght@400;700&family=Manrope:wght@800&family=Playfair+Display&display=swap" rel="stylesheet"> 
+
+  <title>Frontend Mentor | Advice generator app</title>
+</head>
+<body style="background-color: hsl(218, 23%, 16%);">
+  <div role="main">
+    <div class="container">
+      <div class="advice-box">
+        <span class="title">ADVICE #<span id="count">1</span></span>
+        <p id="advice"></p>
+        <div class="divider">
+          <img alt="" src="./assets/images/pattern-divider-desktop.svg" class="seperator desktop">
+          <img alt="" src="./assets/images/pattern-divider-mobile.svg" class="seperator mobile">
+          <div class="circle" onclick="advice()">
+            <img class="" alt="" src="./assets/images/icon-dice.svg">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="attribution">
+      Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
+      Coded by <a href="#">Your Name Here</a>.
+    </div>
+  </div>
+</body>
+</html>
+
+<script>
+  let count = 1
+  let ad = document.getElementById("advice");
+  fetch('https://api.adviceslip.com/advice?t=' + Math.random()).then(response => {
+    // Check if the response status is OK (status code 200)
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    
+    // Parse the response body as JSON
+    return response.json();
+    })
+    .then(data => {
+      // Use the data received from the API
+      ad.innerHTML =data.slip.advice
+    })
+    .catch(error => {
+      // Handle any errors that occurred during the fetch
+      console.error('There was a problem with the fetch operation:', error);
+  });
+
+
+  function advice(){
+    fetch('https://api.adviceslip.com/advice?t=' + Math.random()).then(response => {
+    // Check if the response status is OK (status code 200)
+    if (!response.ok) {
+      throw new Error('Network response was not ok');
+    }
+    
+    // Parse the response body as JSON
+    return response.json();
+    })
+    .then(data => {
+      // Use the data received from the API
+      console.log(data)
+      ad.innerHTML =data.slip.advice
+    })
+    .catch(error => {
+      // Handle any errors that occurred during the fetch
+      console.error('There was a problem with the fetch operation:', error);
+    });
+  }
+</script>

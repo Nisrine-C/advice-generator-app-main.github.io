@@ -1,0 +1,90 @@
+.attribution { font-size: 15px; text-align: center; color:hsl(193, 38%, 86%) }
+.attribution a {font-size: 15px; color: hsl(150, 100%, 66%); }
+
+*{
+  margin:0;padding:0;
+  font-size:28px;
+  font-family: Manrope;
+  box-sizing: border-box;
+}
+
+.container{
+  height:fit-content;width:100%;
+  padding-top:20vh;padding-bottom:27vh;
+}
+
+.advice-box{
+  overflow:visible;
+  background-color: hsl(217, 19%, 24%);
+  height:45%;width:50%;
+  margin:auto;
+  border-radius:15px;
+  padding:2rem;
+  display:grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 0.1fr 0.7fr 0.2fr;
+  grid-row-gap:1rem;
+  position:relative;
+}
+.seperator{
+  height:1rem;
+  width:100%;
+}
+
+.desktop{
+  display:grid
+}
+
+.mobile{
+  display:none
+}
+
+.advice-box span{
+  width:100%;
+  text-align: center;
+  font-size:small;
+  font-weight:800;
+  letter-spacing: 2.5px;
+  color: hsl(150, 100%, 66%);
+}
+
+.advice-box p{
+  width: 100%;
+  text-align: center;
+  font-size:28px;
+  min-width:0;
+  font-weight:800;
+  color:white;
+}
+
+.circle{
+  width:55px;height:55px;
+  border-radius: 50%;
+  text-align: center;
+  justify-content: center;
+  background-color: hsl(150, 100%, 66%);
+  z-index: 20;
+  position: absolute; 
+  top: 95%; 
+  left: 46.5%;
+  transition: background-color 0.3s ease;
+}
+
+
+.circle img{  
+  margin:auto;
+  margin-top:14.7px;
+}
+
+.circle:hover{
+  cursor: pointer;
+  background-color: hsl(150, 94%, 62%);
+   box-shadow:
+    0 0 15px 2px hsl(150, 94%, 62%);
+}
+
+@media only screen and (max-width:950px){
+  .advice-box{
+    width:80%
+  }
+}
