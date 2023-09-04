@@ -39,6 +39,7 @@
 <script>
   let count = 1
   let ad = document.getElementById("advice");
+  let counter = document.getElementById("count")
   fetch('https://api.adviceslip.com/advice?t=' + Math.random()).then(response => {
     // Check if the response status is OK (status code 200)
     if (!response.ok) {
@@ -72,6 +73,8 @@
       // Use the data received from the API
       console.log(data)
       ad.innerHTML =data.slip.advice
+      count++
+      counter.innerHTML = count
     })
     .catch(error => {
       // Handle any errors that occurred during the fetch
